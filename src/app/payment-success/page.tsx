@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function PaymentSuccess() {
     return (
       <div className="flex justify-center items-center p-6">
@@ -9,12 +11,12 @@ export default function PaymentSuccess() {
             alt="Celebration"
             className="w-48 h-48 mx-auto mb-6"
           />
-          <a
+          <Link
             href="/"
             className="inline-block py-3 px-6 bg-orange-500 text-white text-lg font-semibold rounded-lg hover:bg-orange-600 transition duration-300"
           >
             Go to Home
-          </a>
+          </Link>
         </div>
       </div>
     );
