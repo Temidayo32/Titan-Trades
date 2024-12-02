@@ -32,7 +32,7 @@ const CheckoutForm = () => {
       }
 
       const response = await axios.post("/api/checkout", {
-        amount: totalAmount * 100,
+        amount: Math.round(totalAmount * 100),
         paymentMethodId: paymentMethod!.id,
       });
 
