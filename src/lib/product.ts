@@ -1,8 +1,13 @@
 import { CartItem } from '@/stores/AppContext';
+import products from '../../public/products.json';
 
 export const getProductById = (id: string): CartItem | null => {
-  // @ts-ignore: Ignore the error for the following line
-  const products: CartItem[] = require('../../public/products.json');
-  const product = products.find((item) => item.id === parseInt(id));
-  return product || null;
+  // @ts-expect-error Products from JSON need type assertion
+  const typedProducts: CartItem[] = products;
+  const productId = parseInt(id, 10);
+  if (isNaN(productId)) {
+    return null;
+  }
+  
+  return typedProducts.find((item) => item.id === productId) || null;
 };
